@@ -1,6 +1,63 @@
-
+body{
+    background-color: black;
+    height: 100%;
+}
+p{
+    color: white;
+    padding: 5px;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    background-color: #19302a;
+}
+.button{
+    padding: 15px 25px;
+    margin-left: 10px;
+    background-color:#ee6986;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+.inputSearch{
+    padding:15px;
+    width: 500px;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    color:#ee6986;
+}
+.containerCards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+ 
+}
 .card{
-    padding: 10px;
-    margin: 5px;
-    border: 1px solid black;
+    /* padding: 20px; */
+    margin: 20px;
+    width: 20%;
+    border:1px solid rgba(85, 78, 12, 0.678);
+    background-color: #221111;
+    border-radius: 15px;
+}
+.image{
+    width: 100%;
+    
+}
+.name{
+    background-color: #19302a;
+    padding:20px;
+   
+    color:#0b0924;
+}
+.link{
+     color:#ee6986;
+     cursor: pointer;
 }

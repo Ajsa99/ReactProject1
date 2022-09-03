@@ -6,43 +6,46 @@ import newApi from "../../api/data";
 
 const Main = (props) => {
 
-
     const [quote, setQuote] = useState([])
+    const [search, setSearch] = useState('')
 
-    const getQuote = async() => {
+    const getQuote = async(searchProp) => {
         try {
-          const res = await newApi.get("posts");
-          
-          console.log(res.data)
-          setQuote(res.data)
+          let res;
+          if(searchProp){
+           res = await newApi.get(`/v2/everything?domains=techcrunch.com,thenextweb.com&pageSize=20&apiKey=b5b9e0dd69124bab91dfc30accca761b&q=${searchProp}`);
+          }else{
+            res = await newApi.get("/v2/top-headlines?domains=techcrunch.com,thenextweb.com&pageSize=20&apiKey=b5b9e0dd69124bab91dfc30accca761b");
+          }
+          console.log(res.data.articles)
+          setQuote(res.data.articles)
         } catch (error) {
             console.log(error);
             
         }
     }
+
+    useEffect(()=>{
+        getQuote()
+    }, [])
  
   return (
     <div>
-        {/* <p>Search:</p>
-        <input type="text" onChange={(event)=> setValue(event.target.value)} value={value} />
-
-        <p>
-            {result.map((result, index)=>{
-                <a href="#" key={index}>
-                    <div>
-                        {result}
-                    </div>
-
-                </a>
-            })}
-        </p> */}
-
-
-      <button onClick={getQuote}>Get Quotes</button>
-      <br />
+      <div className={style.search}>
+      <input type="text" onChange={(e) => setSearch(e.target.value)} value={search} className={style.inputSearch} />
+      <button className={style.button} onClick={() => getQuote(search)}>Search</button>
+      </div>
      
-       {quote.map((item,index)=>{return <p className={style.card} key={index}>Title: {item.title} <br /> Body: {item.body}</p>})}
-      {/* <p>{quote.title}</p> */}
+      <br />
+     <div className={style.containerCards}>
+     {quote.map((item,index) => {return <p className={style.card} key={index}>
+     <p className={style.name}> Author: {item.author}</p>
+     <p className={style.link}>Click for description...</p> <br /> 
+     <p><img src={item.urlToImage} alt="" className={style.image}/></p>
+     <p> {item.content} </p>
+       </p>})}
+     </div>
+      
     </div>
   );
 }
