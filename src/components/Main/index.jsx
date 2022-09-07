@@ -8,26 +8,30 @@ const Main = (props) => {
 
     const [quote, setQuote] = useState([])
     const [search, setSearch] = useState('')
+    const [page, setPage] = useState(20)
 
-    const getQuote = async(searchProp) => {
-        try {
-          let res;
-          if(searchProp){
-           res = await newApi.get(`/v2/everything?domains=techcrunch.com,thenextweb.com&pageSize=20&apiKey=b5b9e0dd69124bab91dfc30accca761b&q=${searchProp}`);
-          }else{
-            res = await newApi.get("/v2/top-headlines?domains=techcrunch.com,thenextweb.com&pageSize=20&apiKey=b5b9e0dd69124bab91dfc30accca761b");
-          }
-          console.log(res.data.articles)
-          setQuote(res.data.articles)
-        } catch (error) {
-            console.log(error);
-            
-        }
+    async function getQuote(searchProp) {
+    try {
+      let res;
+      if (searchProp) {
+        res = await newApi.get(`/v2/everything?domains=techcrunch.com,thenextweb.com&pageSize=${page}&apiKey=b4060aac97114d56bf7a78de9702b1b1&q=${searchProp}`);
+      } else {
+        res = await newApi.get("/v2/top-headlines?domains=techcrunch.com,thenextweb.com&pageSize=20&apiKey=b4060aac97114d56bf7a78de9702b1b1");
+      }
+      console.log(res.data.articles);
+
+      setQuote(res.data.articles);
+    } catch (error) {
+      console.log(error);
+
     }
+  }
 
     useEffect(()=>{
         getQuote()
-    }, [])
+    }, );
+
+    
  
   return (
     <div>
@@ -39,11 +43,15 @@ const Main = (props) => {
       <br />
      <div className={style.containerCards}>
      {quote.map((item,index) => {return <p className={style.card} key={index}>
-     <p className={style.name}> Author: {item.author}</p>
+     <h4 className={style.name}> Author: {item.author}</h4>
      <p className={style.link}>Click for description...</p> <br /> 
      <p><img src={item.urlToImage} alt="" className={style.image}/></p>
      <p> {item.content} </p>
        </p>})}
+     </div>
+     
+     <div className={style.more}>
+       <button className={style.buttonMore} onClick={()=>{setPage(page+20); getQuote(search)}} value={search} >More....</button>
      </div>
       
     </div>

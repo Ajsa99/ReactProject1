@@ -61,3 +61,16 @@ a{
      color:#ee6986;
      cursor: pointer;
 }
+.more{
+    display: flex;
+    justify-content: center;
+    background-color: black;
+}
+.buttonMore{
+    border:none;
+    background-color:#ee6986;
+    padding: 10px 200px;
+    border-radius: 5px;
+    margin: 30px;
+    /* width: 100px; */
+}
