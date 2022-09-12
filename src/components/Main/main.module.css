@@ -1,0 +1,106 @@
+body{
+    background-color: black;
+    height: 100%;
+}
+p{
+    color: white;
+    padding: 5px;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 390px;
+    background-color: #19302a;
+}
+.button{
+    padding: 15px 25px;
+    margin-left: 10px;
+    background-color:#ee6986;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+.inputSearch{
+    padding:15px;
+    width: 500px;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    color:#ee6986;
+}
+.containerCards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+ 
+}
+.card{
+    /* padding: 20px; */
+    margin: 20px;
+    width: 20%;
+    border:1px solid rgba(85, 78, 12, 0.678);
+    background-color: #221111;
+    border-radius: 15px;
+}
+.image{
+    width: 100%;
+    
+}
+.name{
+    background-color: #19302a;
+    padding:20px;
+   
+    color:#0b0924;
+}
+.link{
+     color:#ee6986;
+     cursor: pointer;
+}
+.more{
+    display: flex;
+    justify-content: center;
+    background-color: black;
+}
+.buttonMore{
+    border:none;
+    background-color:#ee6986;
+    padding: 10px 200px;
+    border-radius: 5px;
+    margin: 30px;
+    cursor: pointer;
+}
+.Sortby{
+    padding-left: 50px;
+    font-size: 18px;
+    color:white;
+}
+.buttonCategory{
+    color:#ee6986;
+    cursor: pointer;
+}
+.buttonCategory:hover{
+    color:white;
+}
+.categories{
+    display: block;
+    position: absolute;
+    top:10px;
+    right: 2%;
+    background-color:black;
+    color: #ee6986 ;
+    border: 1px solid #19302a;
+}
+.categoriesText{
+    color: #ee6986 ;
+    padding: 10px 40px;
+}
+.categoriesText:hover{
+    color: black;
+    background-color: white ;
+    cursor: pointer;
+}

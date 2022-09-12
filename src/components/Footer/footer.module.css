@@ -1,0 +1,14 @@
+
+  .footer {
+    width: 100%;
+    position: relative;
+    height: auto;
+    background-color: #070617;
+    padding: 70px 0px 10px 0px;
+  }
+  .footer p{
+    display: flex;
+    justify-content: center;
+    color: gray;
+  }
+  
