@@ -25,8 +25,8 @@ const Main = (props) => {
         res = await newApi.get(`/v2/top-headlines?domains=techcrunch.com,thenextweb.com&category=${category}&pageSize=20&page=${page}&apiKey=b5b9e0dd69124bab91dfc30accca761b`);
       }
       console.log(res.data.articles);
-
-      setDate(res.data.articles);
+      
+      setDate([...date,...res.data.articles]);
     } catch (error) {
       console.log(error);
 
