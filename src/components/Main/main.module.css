@@ -14,7 +14,7 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 300px;
+    height: 390px;
     background-color: #19302a;
 }
 .button{
@@ -72,5 +72,35 @@ a{
     padding: 10px 200px;
     border-radius: 5px;
     margin: 30px;
-    /* width: 100px; */
+    cursor: pointer;
+}
+.Sortby{
+    padding-left: 50px;
+    font-size: 18px;
+    color:white;
+}
+.buttonCategory{
+    color:#ee6986;
+    cursor: pointer;
+}
+.buttonCategory:hover{
+    color:white;
+}
+.categories{
+    display: block;
+    position: absolute;
+    top:10px;
+    right: 2%;
+    background-color:black;
+    color: #ee6986 ;
+    border: 1px solid #19302a;
+}
+.categoriesText{
+    color: #ee6986 ;
+    padding: 10px 40px;
+}
+.categoriesText:hover{
+    color: black;
+    background-color: white ;
+    cursor: pointer;
 }
